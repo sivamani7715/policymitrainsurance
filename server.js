@@ -1,0 +1,10 @@
+const express=require('express'),fs=require('fs'),path=require('path');
+const app=express(); const PORT=process.env.PORT||3000;
+const ADMIN_TOKEN=process.env.ADMIN_TOKEN||'CHANGE_ME';
+const DATA=path.join(__dirname,'leads.json'); if(!fs.existsSync(DATA)) fs.writeFileSync(DATA,'[]');
+app.use(express.json({limit:'20kb'})); app.use(express.static(path.join(__dirname,'public')));
+const clean=v=>String(v??'').trim().slice(0,500);
+app.post('/api/leads',(req,res)=>{const x=req.body||{}; if(!x.name||!x.mobile||!x.age||!x.city||!x.requirement||x.consent!=='yes') return res.status(400).json({error:'Please complete required fields and consent.'}); const lead={id:Date.now().toString(),submittedAt:new Date().toISOString(),name:clean(x.name),mobile:clean(x.mobile),age:clean(x.age),city:clean(x.city),income:clean(x.income),requirement:clean(x.requirement),message:clean(x.message)}; const a=JSON.parse(fs.readFileSync(DATA)); a.push(lead); fs.writeFileSync(DATA,JSON.stringify(a,null,2)); res.json({ok:true});});
+app.get('/api/leads',(req,res)=>{if(req.get('Authorization')!==`Bearer ${ADMIN_TOKEN}`) return res.status(401).json({error:'Unauthorized'}); res.json(JSON.parse(fs.readFileSync(DATA)));});
+app.get('/api/leads.csv',(req,res)=>{if(req.get('Authorization')!==`Bearer ${ADMIN_TOKEN}`) return res.status(401).send('Unauthorized'); const a=JSON.parse(fs.readFileSync(DATA)); const esc=v=>'"'+String(v??'').replaceAll('"','""')+'"'; const head='ID,Submitted At,Name,Mobile,Age,City,Income,Requirement,Message'; const rows=a.map(x=>[x.id,x.submittedAt,x.name,x.mobile,x.age,x.city,x.income,x.requirement,x.message].map(esc).join(',')); res.setHeader('Content-Type','text/csv'); res.setHeader('Content-Disposition','attachment; filename="policymitra-leads.csv"'); res.send([head,...rows].join('\n'));});
+app.listen(PORT,()=>console.log(`PolicyMitra running on ${PORT}`));
