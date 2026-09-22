@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PolicyMitra | Life Insurance Consultation</title>
+<style>
+:root{--n:#09285b;--b:#1769d2;--g:#f4c542;--bg:#f5f8fd;--mut:#667085}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;color:#172033;background:var(--bg);line-height:1.5}
+header{background:linear-gradient(135deg,var(--n),#174f9f);color:white;padding:17px 6%;position:sticky;top:0;z-index:5}
+nav{max-width:1150px;margin:auto;display:flex;justify-content:space-between;align-items:center}.logo{font-size:28px;font-weight:800}.logo span{color:var(--g)}nav a{color:#fff;text-decoration:none;margin-left:18px;font-weight:bold}
+.hero{padding:55px 6%;background:linear-gradient(135deg,#eef5ff,#fff)}.wrap{max-width:1150px;margin:auto}.heroGrid{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center}
+.badge{display:inline-block;background:#fff2b9;padding:8px 13px;border-radius:30px;font-weight:bold;color:#695300}h1{font-size:48px;line-height:1.05;color:var(--n);margin:15px 0}h1 span{color:var(--b)}.lead{font-size:19px;color:#4b5563;max-width:680px}
+.btn{display:inline-block;border:0;border-radius:10px;padding:14px 20px;font-weight:800;text-decoration:none;cursor:pointer;font-size:16px}.primary{background:var(--b);color:white}.secondary{background:white;color:var(--n);border:1px solid #d7dfeb;margin-left:8px}
+.card{background:#fff;border-radius:20px;box-shadow:0 12px 35px #09285b1c;padding:24px}.advisor{overflow:hidden;padding:0}.advisor img{width:100%;height:330px;object-fit:cover;object-position:center top}.advisorInfo{padding:18px}.advisorInfo h3{margin:0;color:var(--n)}
+section{padding:55px 6%}.title{text-align:center;color:var(--n);font-size:34px;margin:0 0 8px}.sub{text-align:center;color:var(--mut);max-width:720px;margin:0 auto 30px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.prod h3{color:var(--n);margin-bottom:5px}.icon{font-size:30px}
+.formSec{background:#edf5ff}.formGrid{display:grid;grid-template-columns:.8fr 1.2fr;gap:25px}form{display:grid;grid-template-columns:1fr 1fr;gap:14px}label{font-weight:bold;font-size:14px}.full{grid-column:1/-1}input,select,textarea{width:100%;padding:13px;border:1px solid #ccd6e4;border-radius:9px;margin-top:6px;font:inherit}textarea{min-height:85px}.check{display:flex;gap:8px;font-weight:normal;color:#566070}.check input{width:auto;margin:3px 0}.msg{display:none;padding:12px;border-radius:8px;background:#e9f9ef;color:#166534;font-weight:bold;margin-bottom:14px}
+footer{background:#071b3d;color:#cbd5e1;padding:25px 6%;text-align:center;font-size:13px}
+@media(max-width:800px){nav a{display:none}.heroGrid,.formGrid{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}h1{font-size:38px}form{grid-template-columns:1fr}.full{grid-column:auto}.secondary{margin:8px 0 0}}
+@media(max-width:520px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><nav><div class="logo">Policy<span>Mitra</span></div><div><a href="#plans">Plans</a><a href="#enquiry">Enquiry</a><a href="#contact">Contact</a><a href="/admin.html">Admin</a></div></nav></header>
+
+<section class="hero"><div class="wrap heroGrid">
+<div><div class="badge">Personalised Insurance Consultation</div>
+<h1>Protect what matters.<br><span>Plan your future.</span></h1>
+<p class="lead">Get guidance on life insurance options for protection, savings, child education and retirement goals.</p>
+<a class="btn primary" href="#enquiry">Get a Free Consultation</a>
+<a class="btn secondary" href="tel:+919494044014">Call Now</a></div>
+<div class="card advisor"><img src="advisor-photo.png" alt="A.M. Siva Nagaraju"><div class="advisorInfo"><h3>A.M. Siva Nagaraju</h3>Branch Manager · Secunderabad</div></div>
+</div></section>
+
+<section id="plans"><div class="wrap"><h2 class="title">Insurance Solutions</h2><p class="sub">Options for different financial goals. Suitability depends on your needs and policy terms.</p>
+<div class="grid">
+<div class="card prod"><div class="icon">🛡️</div><h3>Term Insurance</h3><p>Life protection focused solutions.</p></div>
+<div class="card prod"><div class="icon">💰</div><h3>Savings Plans</h3><p>Plan for long-term financial goals.</p></div>
+<div class="card prod"><div class="icon">🎓</div><h3>Child Plans</h3><p>Plan for future education and milestones.</p></div>
+<div class="card prod"><div class="icon">🌅</div><h3>Retirement Plans</h3><p>Plan around retirement corpus and income needs.</p></div>
+<div class="card prod"><div class="icon">🔄</div><h3>Money Back</h3><p>Explore scheduled-benefit options subject to policy terms.</p></div>
+<div class="card prod"><div class="icon">📈</div><h3>ULIP</h3><p>Insurance plus market-linked investment options; market risk applies.</p></div>
+</div></div></section>
+
+<section class="formSec" id="enquiry"><div class="wrap formGrid">
+<div><h2 class="title" style="text-align:left">Request a Call Back</h2><p>Share a few details and PolicyMitra can contact you about your enquiry.</p>
+<div class="card"><b>What happens next?</b><ul><li>Your enquiry is recorded securely.</li><li>You can be contacted about the selected requirement.</li><li>Policy details are discussed before any application.</li></ul></div></div>
+<div class="card"><div id="msg" class="msg">Thank you! Your enquiry has been submitted.</div>
+<form id="leadForm">
+<div><label>Full Name*<input name="name" required></label></div>
+<div><label>Mobile Number*<input name="mobile" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" required></label></div>
+<div><label>Age*<input name="age" type="number" min="18" max="80" required></label></div>
+<div><label>City*<input name="city" required></label></div>
+<div><label>Annual Income Range<select name="income" required><option value="">Select</option><option>Below ₹3 Lakhs</option><option>₹3–5 Lakhs</option><option>₹5–10 Lakhs</option><option>₹10–20 Lakhs</option><option>₹20 Lakhs+</option></select></label></div>
+<div><label>Requirement<select name="requirement" required><option value="">Select</option><option>Term Insurance</option><option>Savings</option><option>Child Plan</option><option>Retirement</option><option>Money Back</option><option>ULIP</option><option>Not sure – need guidance</option></select></label></div>
+<div class="full"><label>Message<textarea name="message" placeholder="What are you looking for?"></textarea></label></div>
+<label class="full check"><input type="checkbox" name="consent" value="yes" required> I agree to be contacted regarding my insurance enquiry and understand this is an enquiry, not policy issuance.</label>
+<button class="btn primary full" type="submit">Submit Enquiry</button>
+</form>
+<p style="font-size:12px;color:#667085">Please avoid submitting Aadhaar, PAN, bank details or other sensitive documents through this form.</p>
+</div></div></section>
+
+<section id="contact"><div class="wrap"><h2 class="title">Contact PolicyMitra</h2><div class="card">
+<b>A.M. Siva Nagaraju – Branch Manager</b><p>📞 <a href="tel:+919494044014">9494044014</a> · ✉️ <a href="mailto:sivamani7715@gmail.com">sivamani7715@gmail.com</a></p>
+<p>Door No. 52/A (old), New Municipal No. 9-1-161, 3rd Floor, Amsri Faust, Sarojini Devi Road, Secunderabad.</p>
+</div></div></section>
+<footer>© 2026 PolicyMitra. Information is subject to applicable policy terms, conditions, exclusions and underwriting.</footer>
+<script>
+document.getElementById('leadForm').addEventListener('submit', async e=>{
+ e.preventDefault();
+ const f=e.target, data=Object.fromEntries(new FormData(f).entries());
+ try{
+  const r=await fetch('/api/leads',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+  if(!r.ok) throw new Error();
+  document.getElementById('msg').style.display='block'; f.reset();
+ }catch(err){alert('Unable to submit right now. Please call 9494044014.');}
+});
+</script>
+</body></html>
